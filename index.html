@@ -209,6 +209,39 @@
     Paddle Stadium © All Rights Reserved
 </footer>
 
+
+
+   <script type="module">
+import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm"
+
+const supabase = createClient(
+  "https://iffzbuxurizyusjquhul.supabase.co",
+  "sb_publishable_hZ0FAMkHPoU7pggKWf187A_7eOD22eM"
+)
+
+window.buy = async function(product, price) {
+  const { data: { user } } = await supabase.auth.getUser()
+
+  if (!user) {
+    alert("You must be logged in")
+    return
+  }
+
+  await supabase.from("orders").insert([
+    {
+      product_name: product,
+      price: price,
+      user_id: user.id
+    }
+  ])
+
+  window.location.href = "https://buy.stripe.com/7sY3cx5Oy7JP1wSblUfbq02"
+}
+</script>
+
+
+
+   
 </body>
 </html>
 
