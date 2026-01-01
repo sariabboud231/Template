@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paddle Stadium Shop</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+        background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+        color: white;
+    }
+
+    header {
+        padding: 40px;
+        text-align: center;
+    }
+
+    header h1 {
+        font-size: 3rem;
+        margin-bottom: 10px;
+    }
+
+    header p {
+        opacity: 0.8;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: auto;
+        padding: 40px 20px;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 25px;
+    }
+
+    .card {
+        background: rgba(255,255,255,0.08);
+        border-radius: 18px;
+        padding: 20px;
+        transition: transform 0.3s, box-shadow 0.3s;
+        backdrop-filter: blur(10px);
+    }
+
+    .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+    }
+
+    .racket-image {
+        height: 160px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+        margin-bottom: 15px;
+    }
+
+    /* Replace the div above with:
+       <img src="racket1.jpg" class="racket-image">
+    */
+
+    .card h3 {
+        margin-bottom: 10px;
+    }
+
+    .price {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+        color: #ffd369;
+    }
+
+    .btn {
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        padding: 12px;
+        border-radius: 30px;
+        background: linear-gradient(135deg, #ffb347, #ffcc33);
+        color: black;
+        font-weight: bold;
+        transition: opacity 0.3s;
+    }
+
+    .btn:hover {
+        opacity: 0.85;
+    }
+
+    .booking {
+        margin-top: 80px;
+        text-align: center;
+    }
+
+    .booking h2 {
+        font-size: 2.2rem;
+        margin-bottom: 20px;
+    }
+
+    .booking-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    footer {
+        text-align: center;
+        padding: 30px;
+        opacity: 0.6;
+        font-size: 0.9rem;
+    }
+</style>
+</head>
+
+  
+<script>   
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="cYWw7-i-pctRJb4LICkFA";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+</script>
+
+  
+<body>
+
+<header>
+    <h1>Paddle Stadium</h1>
+    <p>Premium rackets • Easy booking • Instant purchase</p>
+</header>
+
+<div class="container">
+
+    <div class="grid">
+
+        <div class="card">
+            <div class="racket-image"></div>
+            <h3>Racket 1</h3>
+            <div class="price">$100</div>
+            <a class="btn" href="https://buy.stripe.com/7sY3cx5Oy7JP1wSblUfbq02" target="_blank">Buy Now</a>
+        </div>
+
+        <div class="card">
+            <div class="racket-image"></div>
+            <h3>Racket 2</h3>
+            <div class="price">$200</div>
+            <a class="btn" href="https://buy.stripe.com/7sY3cx5Oy7JP1wSblUfbq02" target="_blank">Buy Now</a>
+        </div>
+
+        <div class="card">
+            <div class="racket-image"></div>
+            <h3>Racket 3</h3>
+            <div class="price">$150</div>
+            <a class="btn" href="https://buy.stripe.com/7sY3cx5Oy7JP1wSblUfbq02" target="_blank">Buy Now</a>
+        </div>
+
+        <div class="card">
+            <div class="racket-image"></div>
+            <h3>Racket 4</h3>
+            <div class="price">$250</div>
+            <a class="btn" href="https://buy.stripe.com/7sY3cx5Oy7JP1wSblUfbq02" target="_blank">Buy Now</a>
+        </div>
+
+        <div class="card">
+            <div class="racket-image"></div>
+            <h3>Racket 5</h3>
+            <div class="price">$300</div>
+            <a class="btn" href="https://buy.stripe.com/7sY3cx5Oy7JP1wSblUfbq02" target="_blank">Buy Now</a>
+        </div>
+
+        <div class="card">
+            <div class="racket-image"></div>
+            <h3>Racket 6</h3>
+            <div class="price">$50</div>
+            <a class="btn" href="https://buy.stripe.com/7sY3cx5Oy7JP1wSblUfbq02" target="_blank">Buy Now</a>
+        </div>
+
+        <div class="card">
+            <div class="racket-image"></div>
+            <h3>Racket 7</h3>
+            <div class="price">$90</div>
+            <a class="btn" href="https://buy.stripe.com/7sY3cx5Oy7JP1wSblUfbq02" target="_blank">Buy Now</a>
+        </div>
+
+        <div class="card">
+            <div class="racket-image"></div>
+            <h3>Racket 8</h3>
+            <div class="price">$190</div>
+            <a class="btn" href="https://buy.stripe.com/7sY3cx5Oy7JP1wSblUfbq02" target="_blank">Buy Now</a>
+        </div>
+
+    </div>
+
+    <div class="booking">
+        <h2>Book a Session</h2>
+        <div class="booking-buttons">
+            <a class="btn" href="https://cal.com/sari-abboud-wkh9lc/30min" target="_blank">Book 30 Minutes</a>
+            <a class="btn" href="https://cal.com/sari-abboud-wkh9lc/1hour" target="_blank">Book 1 Hour</a>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    Paddle Stadium © All Rights Reserved
+</footer>
+
+</body>
+</html>
+
