@@ -1,247 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Paddle Stadium Shop</title>
 
 <style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Segoe UI", sans-serif;
-    }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
 
-    body {
-        background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-        color: white;
-    }
+body {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: white;
+}
 
-    header {
-        padding: 40px;
-        text-align: center;
-    }
+header {
+  padding: 40px;
+  text-align: center;
+}
 
-    header h1 {
-        font-size: 3rem;
-        margin-bottom: 10px;
-    }
+header h1 {
+  font-size: 3rem;
+}
 
-    header p {
-        opacity: 0.8;
-    }
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px;
+}
 
-    .container {
-        max-width: 1200px;
-        margin: auto;
-        padding: 40px 20px;
-    }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
 
-    .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 25px;
-    }
+.card {
+  background: rgba(255,255,255,0.08);
+  border-radius: 18px;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s;
+}
 
-    .card {
-        background: rgba(255,255,255,0.08);
-        border-radius: 18px;
-        padding: 20px;
-        transition: transform 0.3s, box-shadow 0.3s;
-        backdrop-filter: blur(10px);
-    }
+.card:hover {
+  transform: translateY(-8px);
+}
 
-    .card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 15px 30px rgba(0,0,0,0.4);
-    }
+.racket-image {
+  height: 150px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  margin-bottom: 15px;
+}
 
-    .racket-image {
-        height: 160px;
-        border-radius: 12px;
-        background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-        margin-bottom: 15px;
-    }
+.price {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #ffd369;
+}
 
-    /* Replace the div above with:
-       <img src="racket1.jpg" class="racket-image">
-    */
+.btn {
+  display: block;
+  padding: 12px;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #ffb347, #ffcc33);
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+}
 
-    .card h3 {
-        margin-bottom: 10px;
-    }
+.admin {
+  margin: 40px auto;
+  text-align: center;
+}
 
-    .price {
-        font-size: 1.2rem;
-        margin-bottom: 15px;
-        color: #ffd369;
-    }
-
-    .btn {
-        display: block;
-        text-align: center;
-        text-decoration: none;
-        padding: 12px;
-        border-radius: 30px;
-        background: linear-gradient(135deg, #ffb347, #ffcc33);
-        color: black;
-        font-weight: bold;
-        transition: opacity 0.3s;
-    }
-
-    .btn:hover {
-        opacity: 0.85;
-    }
-
-    .booking {
-        margin-top: 80px;
-        text-align: center;
-    }
-
-    .booking h2 {
-        font-size: 2.2rem;
-        margin-bottom: 20px;
-    }
-
-    .booking-buttons {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        flex-wrap: wrap;
-    }
-
-    footer {
-        text-align: center;
-        padding: 30px;
-        opacity: 0.6;
-        font-size: 0.9rem;
-    }
+input {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  margin: 5px;
+}
 </style>
 </head>
 
-  
-<script>   
-(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="cYWw7-i-pctRJb4LICkFA";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
-</script>
-
-  
 <body>
 
 <header>
-    <h1>Paddle Stadium</h1>
-    <p>Premium rackets • Easy booking • Instant purchase</p>
+  <h1>Paddle Stadium</h1>
+  <p>Buy rackets • Book sessions • Chat with us</p>
 </header>
 
 <div class="container">
 
-    <div class="grid">
-
-        <div class="card">
-            <div class="racket-image"></div>
-            <h3>Racket 1</h3>
-            <div class="price">$100</div>
-            <a class="btn" href="https://buy.stripe.com/7sY3cx5Oy7JP1wSblUfbq02" target="_blank">Buy Now</a>
-        </div>
-
-        <div class="card">
-            <div class="racket-image"></div>
-            <h3>Racket 2</h3>
-            <div class="price">$200</div>
-            <a class="btn" href="https://buy.stripe.com/7sY3cx5Oy7JP1wSblUfbq02" target="_blank">Buy Now</a>
-        </div>
-
-        <div class="card">
-            <div class="racket-image"></div>
-            <h3>Racket 3</h3>
-            <div class="price">$150</div>
-            <a class="btn" href="https://buy.stripe.com/7sY3cx5Oy7JP1wSblUfbq02" target="_blank">Buy Now</a>
-        </div>
-
-        <div class="card">
-            <div class="racket-image"></div>
-            <h3>Racket 4</h3>
-            <div class="price">$250</div>
-            <a class="btn" href="https://buy.stripe.com/7sY3cx5Oy7JP1wSblUfbq02" target="_blank">Buy Now</a>
-        </div>
-
-        <div class="card">
-            <div class="racket-image"></div>
-            <h3>Racket 5</h3>
-            <div class="price">$300</div>
-            <a class="btn" href="https://buy.stripe.com/7sY3cx5Oy7JP1wSblUfbq02" target="_blank">Buy Now</a>
-        </div>
-
-        <div class="card">
-            <div class="racket-image"></div>
-            <h3>Racket 6</h3>
-            <div class="price">$50</div>
-            <a class="btn" href="https://buy.stripe.com/7sY3cx5Oy7JP1wSblUfbq02" target="_blank">Buy Now</a>
-        </div>
-
-        <div class="card">
-            <div class="racket-image"></div>
-            <h3>Racket 7</h3>
-            <div class="price">$90</div>
-            <a class="btn" href="https://buy.stripe.com/7sY3cx5Oy7JP1wSblUfbq02" target="_blank">Buy Now</a>
-        </div>
-
-        <div class="card">
-            <div class="racket-image"></div>
-            <h3>Racket 8</h3>
-            <div class="price">$190</div>
-            <a class="btn" href="https://buy.stripe.com/7sY3cx5Oy7JP1wSblUfbq02" target="_blank">Buy Now</a>
-        </div>
-
-    </div>
-
-    <div class="booking">
-        <h2>Book a Session</h2>
-        <div class="booking-buttons">
-            <a class="btn" href="https://cal.com/sari-abboud-wkh9lc/30min" target="_blank">Book 30 Minutes</a>
-            <a class="btn" href="https://cal.com/sari-abboud-wkh9lc/1hour" target="_blank">Book 1 Hour</a>
-        </div>
-    </div>
-
+<!-- ADMIN LOGIN -->
+<div class="admin">
+  <h2>Admin Login</h2>
+  <input id="email" placeholder="email" />
+  <input id="password" type="password" placeholder="password" />
+  <button class="btn" onclick="login()">Login</button>
+  <p id="status"></p>
 </div>
 
-<footer>
-    Paddle Stadium © All Rights Reserved
+<!-- PRODUCTS -->
+<div class="grid">
+
+  <div class="card">
+    <div class="racket-image"></div>
+    <h3>Racket 1</h3>
+    <div class="price">$100</div>
+    <button class="btn" onclick="buy('Racket 1',100)">Buy Now</button>
+  </div>
+
+  <div class="card">
+    <div class="racket-image"></div>
+    <h3>Racket 2</h3>
+    <div class="price">$200</div>
+    <button class="btn" onclick="buy('Racket 2',200)">Buy Now</button>
+  </div>
+
+  <div class="card">
+    <div class="racket-image"></div>
+    <h3>Racket 3</h3>
+    <div class="price">$150</div>
+    <button class="btn" onclick="buy('Racket 3',150)">Buy Now</button>
+  </div>
+
+</div>
+</div>
+
+<footer style="text-align:center;padding:30px;opacity:0.6">
+Paddle Stadium ©
 </footer>
 
+<!-- CHATBASE BOT -->
+<script>
+(function(){
+const s=document.createElement("script");
+s.src="https://www.chatbase.co/embed.min.js";
+s.id="cYWw7-i-pctRJb4LICkFA";
+document.body.appendChild(s);
+})();
+</script>
 
-
-   <script type="module">
-import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm"
+<!-- SUPABASE + LOGIC -->
+<script type="module">
+import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
 
 const supabase = createClient(
-  "https://iffzbuxurizyusjquhul.supabase.co",
-  "sb_publishable_hZ0FAMkHPoU7pggKWf187A_7eOD22eM"
-)
+  "YOUR_SUPABASE_URL_HERE",
+  "YOUR_SUPABASE_ANON_KEY_HERE"
+);
 
-window.buy = async function(product, price) {
-  const { data: { user } } = await supabase.auth.getUser()
+window.login = async () => {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
 
-  if (!user) {
-    alert("You must be logged in")
-    return
-  }
+  const { error } = await supabase.auth.signInWithPassword({ email, password });
 
-  await supabase.from("orders").insert([
-    {
+  document.getElementById("status").innerText =
+    error ? error.message : "Admin logged in";
+};
+
+window.buy = async (product, price) => {
+  const { data: { user } } = await supabase.auth.getUser();
+
+  if (user) {
+    await supabase.from("orders").insert({
       product_name: product,
       price: price,
       user_id: user.id
-    }
-  ])
+    });
+  }
 
-  window.location.href = "https://buy.stripe.com/7sY3cx5Oy7JP1wSblUfbq02"
-}
+  window.location.href =
+    "https://buy.stripe.com/7sY3cx5Oy7JP1wSblUfbq02";
+};
 </script>
 
-
-
-   
 </body>
 </html>
 
+
+       
