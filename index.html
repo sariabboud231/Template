@@ -2,11 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<title>Paddle Stadium</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-<!-- Supabase SDK -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<title>Paddle Stadium</title>
 
 <style>
 * {
@@ -17,13 +14,14 @@
 }
 
 body {
-  background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
   color: white;
+  min-height: 100vh;
 }
 
 header {
+  padding: 50px 20px;
   text-align: center;
-  padding: 40px;
 }
 
 header h1 {
@@ -32,6 +30,23 @@ header h1 {
 
 header p {
   opacity: 0.8;
+  margin-top: 10px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 25px;
+}
+
+nav button {
+  padding: 10px 22px;
+  border-radius: 25px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  background: linear-gradient(135deg, #ffb347, #ffcc33);
 }
 
 .container {
@@ -47,58 +62,43 @@ header p {
 }
 
 .card {
-  background: rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.08);
   border-radius: 18px;
   padding: 20px;
   backdrop-filter: blur(10px);
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.3s;
 }
 
 .card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+  transform: translateY(-10px);
 }
 
-.image {
+.racket-image {
   height: 160px;
   border-radius: 12px;
-  background: linear-gradient(135deg,#ff9a9e,#fad0c4);
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
   margin-bottom: 15px;
 }
 
+.card h3 {
+  margin-bottom: 10px;
+}
+
 .price {
-  color: #ffd369;
   font-size: 1.2rem;
+  color: #ffd369;
   margin-bottom: 15px;
 }
 
 .btn {
   display: block;
-  width: 100%;
+  text-align: center;
   padding: 12px;
   border-radius: 30px;
-  background: linear-gradient(135deg,#ffb347,#ffcc33);
-  color: black;
-  text-align: center;
+  text-decoration: none;
   font-weight: bold;
-  border: none;
-  cursor: pointer;
-}
-
-.btn:hover {
-  opacity: 0.85;
-}
-
-.admin {
-  margin-bottom: 60px;
-  text-align: center;
-}
-
-.admin input {
-  padding: 10px;
-  border-radius: 8px;
-  border: none;
-  margin: 5px;
+  background: linear-gradient(135deg, #ffb347, #ffcc33);
+  color: black;
 }
 
 .booking {
@@ -107,7 +107,8 @@ header p {
 }
 
 .booking h2 {
-  margin-bottom: 20px;
+  font-size: 2.2rem;
+  margin-bottom: 25px;
 }
 
 .booking-buttons {
@@ -122,6 +123,46 @@ footer {
   padding: 30px;
   opacity: 0.6;
 }
+
+/* ADMIN MODAL */
+#adminModal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-box {
+  background: #111;
+  padding: 30px;
+  border-radius: 16px;
+  width: 320px;
+}
+
+.modal-box h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.modal-box input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: none;
+}
+
+.modal-box button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 25px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  background: linear-gradient(135deg, #ffb347, #ffcc33);
+}
 </style>
 </head>
 
@@ -130,54 +171,46 @@ footer {
 <header>
   <h1>Paddle Stadium</h1>
   <p>Premium rackets • Easy booking • Instant purchase</p>
+
+  <nav>
+    <button onclick="openAdmin()">Admin Login</button>
+  </nav>
 </header>
 
 <div class="container">
 
-<!-- ADMIN LOGIN -->
-<div class="admin">
-  <h2>Admin Login</h2><br>
-  <input id="email" placeholder="Admin email" />
-  <input id="password" type="password" placeholder="Password" />
-  <br><br>
-  <button class="btn" onclick="login()">Login</button>
-  <p id="status"></p>
-</div>
+  <!-- SHOP -->
+  <div class="grid">
+    <div class="card">
+      <div class="racket-image"></div>
+      <h3>Racket 1</h3>
+      <div class="price">$100</div>
+      <a class="btn" href="https://buy.stripe.com/7sY3cx5Oy7JP1wSblUfbq02" target="_blank">Buy Now</a>
+    </div>
 
-<!-- PRODUCTS -->
-<div class="grid">
+    <div class="card">
+      <div class="racket-image"></div>
+      <h3>Racket 2</h3>
+      <div class="price">$200</div>
+      <a class="btn" href="https://buy.stripe.com/7sY3cx5Oy7JP1wSblUfbq02" target="_blank">Buy Now</a>
+    </div>
 
-  <div class="card">
-    <div class="image"></div>
-    <h3>A-Racket 1</h3>
-    <div class="price">$100</div>
-    <button class="btn" onclick="buy('A-Racket 1',100)">Buy Now</button>
+    <div class="card">
+      <div class="racket-image"></div>
+      <h3>Racket 3</h3>
+      <div class="price">$150</div>
+      <a class="btn" href="https://buy.stripe.com/7sY3cx5Oy7JP1wSblUfbq02" target="_blank">Buy Now</a>
+    </div>
   </div>
 
-  <div class="card">
-    <div class="image"></div>
-    <h3>A-Racket 2</h3>
-    <div class="price">$200</div>
-    <button class="btn" onclick="buy('A-Racket 2',200)">Buy Now</button>
+  <!-- BOOKING -->
+  <div class="booking">
+    <h2>Book a Session</h2>
+    <div class="booking-buttons">
+      <a class="btn" href="https://cal.com/sari-abboud-wkh9lc/30min" target="_blank">Book 30 Minutes</a>
+      <a class="btn" href="https://cal.com/sari-abboud-wkh9lc/1hour" target="_blank">Book 1 Hour</a>
+    </div>
   </div>
-
-  <div class="card">
-    <div class="image"></div>
-    <h3>A-Racket 3</h3>
-    <div class="price">$150</div>
-    <button class="btn" onclick="buy('A-Racket 3',150)">Buy Now</button>
-  </div>
-
-</div>
-
-<!-- BOOKING -->
-<div class="booking">
-  <h2>Book a Session</h2>
-  <div class="booking-buttons">
-    <a class="btn" href="https://cal.com/sari-abboud-wkh9lc/30min" target="_blank">Book 30 Minutes</a>
-    <a class="btn" href="https://cal.com/sari-abboud-wkh9lc/1hour" target="_blank">Book 1 Hour</a>
-  </div>
-</div>
 
 </div>
 
@@ -185,47 +218,62 @@ footer {
   Paddle Stadium © All Rights Reserved
 </footer>
 
-<!-- CHATBASE BOT -->
-<script>
-(function(){
-  const s=document.createElement("script");
-  s.src="https://www.chatbase.co/embed.min.js";
-  s.id="cYWw7-i-pctRJb4LICkFA";
-  document.body.appendChild(s);
-})();
-</script>
+<!-- ADMIN LOGIN MODAL -->
+<div id="adminModal">
+  <div class="modal-box">
+    <h2>Admin Login</h2>
+    <input type="email" id="email" placeholder="Admin email" />
+    <input type="password" id="password" placeholder="Password" />
+    <button onclick="login()">Login</button>
+  </div>
+</div>
 
-<!-- SUPABASE + LOGIC -->
-<script>
-const supabase = supabasejs.createClient(
+<!-- SUPABASE -->
+<script type="module">
+import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+
+const supabase = createClient(
   "https://iffzbuxurizyusjquhul.supabase.co",
   "sb_publishable_hZ0FAMkHPoU7pggKWf187A_7eOD22eM"
 );
 
-async function login() {
+window.openAdmin = () => {
+  document.getElementById("adminModal").style.display = "flex";
+};
+
+window.login = async () => {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
-  const { error } = await supabase.auth.signInWithPassword({ email, password });
-  document.getElementById("status").innerText =
-    error ? error.message : "Admin logged in";
-}
+  const { error } = await supabase.auth.signInWithPassword({
+    email,
+    password
+  });
 
-async function buy(product, price) {
-  const { data: { user } } = await supabase.auth.getUser();
-
-  if (user) {
-    await supabase.from("orders").insert({
-      product_name: product,
-      price: price,
-      user_id: user.id
-    });
+  if (error) {
+    alert("Login failed");
+  } else {
+    alert("Admin logged in");
+    document.getElementById("adminModal").style.display = "none";
   }
+};
+</script>
 
-  window.location.href =
-    "https://buy.stripe.com/7sY3cx5Oy7JP1wSblUfbq02";
-}
+<!-- CHATBASE BOT -->
+<script>
+(function(){
+  if(!window.chatbase){
+    window.chatbase=(...args)=>{window.chatbase.q.push(args)};
+    window.chatbase.q=[];
+  }
+  const s=document.createElement("script");
+  s.src="https://www.chatbase.co/embed.min.js";
+  s.id="cYWw7-i-pctRJb4LICkFA";
+  s.domain="www.chatbase.co";
+  document.body.appendChild(s);
+})();
 </script>
 
 </body>
 </html>
+
